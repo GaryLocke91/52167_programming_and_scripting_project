@@ -2,7 +2,7 @@
 ## Problem Statement
 This project concerns the well-known Fisher's Iris data set. You must research the data set and write documentation and code in Python to investigate it. An online search for information on the data set will convince you that many people have investigated it previously. You are expected to be able to break this project into several smaller tasks that are easier to solve, and to plug these together after they have been completed.
 
-**Summary of Fisher's Iris Data Set**
+## Summary of Fisher's Iris Data Set
 
 ![Ronald Fischer](Ronald_Fisher.jpg)
 
@@ -169,7 +169,8 @@ Although the initial purpose of the data set was to identify the botanical varia
 6.2 | 3.4 | 5.4 | 2.3 | virginica
 5.9 | 3.0 | 5.1 | 1.8 | virginica
 
-**References**
+## References
+
 Iris flower data set available at: http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
 
 Wikipedia contributors. "Iris flower data set" Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 27 Feb. 2020. Web. 27 Feb 2020.< https://en.wikipedia.org/wiki/Iris_flower_data_set
