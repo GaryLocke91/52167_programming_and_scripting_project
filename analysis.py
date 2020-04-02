@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as pl
+import seaborn as sn
 
 #Reads the data set
 df = pd.read_csv('iris_data.csv')
@@ -128,4 +129,13 @@ pl.title('Petal Width')
 pl.xlabel("Centimetres")
 pl.ylabel("Frequency")
 pl.grid(which='major', axis='both')
+pl.show()
+
+iris = pd.read_csv('iris_data.csv')
+iris['Length (cm)'] = iris['sepal_length']
+iris['Width (cm)'] = iris['sepal_width']
+sn.lmplot(x='Length (cm)', y='Width (cm)', data=iris, hue='species', fit_reg=False, legend=False)
+pl.legend()
+pl.grid(which='major', axis='both')
+pl.title('Sepal Length and Width')
 pl.show()
