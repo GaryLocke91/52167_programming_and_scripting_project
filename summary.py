@@ -11,6 +11,10 @@ Average sepal length: 5.8
 Average sepal width: 3.1
 Average petal length: 3.8
 Average petal width: 1.2
+Standard deviation of sepal length: 0.8
+Standard deviation of sepal width: 0.4
+Standard deviation of petal length: 1.8
+Standard deviation of petal width: 0.8
 
 SETOSA:
 Minimum sepal length: 4.3
@@ -25,6 +29,10 @@ Average sepal length: 5.0
 Average sepal width: 3.4
 Average petal length: 1.5
 Average petal width: 0.2
+Standard deviation of sepal length: 0.4
+Standard deviation of sepal width: 0.4
+Standard deviation of petal length: 0.2
+Standard deviation of petal width: 0.1
 
 VERSICOLOR:
 Minimum sepal length: 4.9
@@ -39,6 +47,10 @@ Average sepal length: 5.9
 Average sepal width: 2.8
 Average petal length: 4.3
 Average petal width: 1.3
+Standard deviation of sepal length: 0.5
+Standard deviation of sepal width: 0.3
+Standard deviation of petal length: 0.5
+Standard deviation of petal width: 0.2
 
 VIRGINICA:
 Minimum sepal length: 4.9
@@ -53,3 +65,7 @@ Average sepal length: 6.6
 Average sepal width: 3.0
 Average petal length: 5.6
 Average petal width: 2.0
+Standard deviation of sepal length: 0.6
+Standard deviation of sepal width: 0.3
+Standard deviation of petal length: 0.6
+Standard deviation of petal width: 0.3
