@@ -203,6 +203,10 @@ Although the initial purpose of the data set was to identify the botanical varia
 **Sepal Length vs. Petal Width**
 ![Sepal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
 
+## Summary
+
+![Pairplot](pairplot.png)
+
 ## References
 
 Iris flower data set available at: http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
