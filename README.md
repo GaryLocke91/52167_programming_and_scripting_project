@@ -169,6 +169,40 @@ Although the initial purpose of the data set was to identify the botanical varia
 6.2 | 3.4 | 5.4 | 2.3 | virginica
 5.9 | 3.0 | 5.1 | 1.8 | virginica
 
+## Analysis of Histograms
+
+**Sepal Length**
+![Sepal Length](sepal_length_histogram.png)
+
+**Sepal Width**
+![Sepal Width](sepal_width_histogram.png)
+
+**Petal Length**
+![Petal Length](petal_length_histogram.png)
+
+**Petal Width**
+![Petal Width](petal_width_histogram.png)
+
+## Analysis of Scatterplots
+
+**Sepal Length vs. Sepal Width**
+![Sepal Length vs. Sepal Width](sepal_length_vs_sepal_width_scatterplot.png)
+
+**Petal Length vs. Petal Width**
+![Petal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
+
+**Sepal Length vs. Petal Length**
+![Sepal Length vs. Petal Length](sepal_length_vs_petal_length_scatterplot.png)
+
+**Sepal Width vs Petal Width**
+![Sepal Width vs Petal Width](sepal_width_vs_petal_width_scatterplot.png)
+
+**Sepal Width vs. Petal Length**
+![Sepal Width vs. Petal Length](sepal_width_vs_petal_length_scatterplot.png)
+
+**Sepal Length vs. Petal Width**
+![Sepal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
+
 ## References
 
 Iris flower data set available at: http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
