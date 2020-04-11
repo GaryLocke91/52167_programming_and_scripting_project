@@ -169,21 +169,144 @@ Although the initial purpose of the data set was to identify the botanical varia
 6.2 | 3.4 | 5.4 | 2.3 | virginica
 5.9 | 3.0 | 5.1 | 1.8 | virginica
 
-## Analysis of Histograms
+## Summary Statistics
+
+The data set is read using the read_csv function from the Pandas library and stored in a variable as a DataFrame. A DataFrame is a 2-dimensional labeled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref. DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html)
+
+```Python
+df = pd.read_csv('iris_data.csv')
+```
+
+The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
+
+```Python
+lst_tot = []
+lst_set = []
+lst_ver = []
+lst_vir = []
+```
+
+The code below calculates the minimum, maximum, average, and standard deviation of each variable in the overall data set as well as each species individually. The ```append()``` method adds a single item (a string in this case) to the existing list.
+
+```Python
+lst_tot.append('Minimum sepal length: ' + str(df['sepal_length'].min()))
+lst_tot.append('Minimum sepal width: ' + str(df['sepal_width'].min()))
+lst_tot.append('Minimum petal length: ' + str(df['petal_length'].min()))
+lst_tot.append('Minimum petal width: ' + str(df['petal_width'].min()))
+lst_tot.append('Maximum sepal length: ' + str(df['sepal_length'].max()))
+lst_tot.append('Maximum sepal width: ' + str(df['sepal_width'].max()))
+lst_tot.append('Maximum petal length: ' + str(df['petal_length'].max()))
+lst_tot.append('Maximum petal width: ' + str(df['petal_width'].max()))
+lst_tot.append('Average sepal length: ' + str(round(df['sepal_length'].mean(), 1)))
+lst_tot.append('Average sepal width: ' + str(round(df['sepal_width'].mean(), 1)))
+lst_tot.append('Average petal length: ' + str(round(df['petal_length'].mean(), 1)))
+lst_tot.append('Average petal width: ' + str(round(df['petal_width'].mean(), 1)))
+lst_tot.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'].std(), 1)))
+lst_tot.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'].std(), 1)))
+lst_tot.append('Standard deviation of petal length: ' + str(round(df['petal_length'].std(), 1)))
+lst_tot.append('Standard deviation of petal width: ' + str(round(df['petal_width'].std(), 1)))
+
+lst_set.append('Minimum sepal length: ' + str(df['sepal_length'][0:50].min()))
+lst_set.append('Minimum sepal width: ' + str(df['sepal_width'][0:50].min()))
+lst_set.append('Minimum petal length: ' + str(df['petal_length'][0:50].min()))
+lst_set.append('Minimum petal width: ' + str(df['petal_width'][0:50].min()))
+lst_set.append('Maximum sepal length: ' + str(df['sepal_length'][0:50].max()))
+lst_set.append('Maximum sepal width: ' + str(df['sepal_width'][0:50].max()))
+lst_set.append('Maximum petal length: ' + str(df['petal_length'][0:50].max()))
+lst_set.append('Maximum petal width: ' + str(df['petal_width'][0:50].max()))
+lst_set.append('Average sepal length: ' + str(round(df['sepal_length'][0:50].mean(), 1)))
+lst_set.append('Average sepal width: ' + str(round(df['sepal_width'][0:50].mean(), 1)))
+lst_set.append('Average petal length: ' + str(round(df['petal_length'][0:50].mean(), 1)))
+lst_set.append('Average petal width: ' + str(round(df['petal_width'][0:50].mean(), 1)))
+lst_set.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'][0:50].std(), 1)))
+lst_set.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'][0:50].std(), 1)))
+lst_set.append('Standard deviation of petal length: ' + str(round(df['petal_length'][0:50].std(), 1)))
+lst_set.append('Standard deviation of petal width: ' + str(round(df['petal_width'][0:50].std(), 1)))
+
+lst_ver.append('Minimum sepal length: ' + str(df['sepal_length'][50:100].min()))
+lst_ver.append('Minimum sepal width: ' + str(df['sepal_width'][50:100].min()))
+lst_ver.append('Minimum petal length: ' + str(df['petal_length'][50:100].min()))
+lst_ver.append('Minimum petal width: ' + str(df['petal_width'][50:100].min()))
+lst_ver.append('Maximum sepal length: ' + str(df['sepal_length'][50:100].max()))
+lst_ver.append('Maximum sepal width: ' + str(df['sepal_width'][50:100].max()))
+lst_ver.append('Maximum petal length: ' + str(df['petal_length'][50:100].max()))
+lst_ver.append('Maximum petal width: ' + str(df['petal_width'][50:100].max()))
+lst_ver.append('Average sepal length: ' + str(round(df['sepal_length'][50:100].mean(), 1)))
+lst_ver.append('Average sepal width: ' + str(round(df['sepal_width'][50:100].mean(), 1)))
+lst_ver.append('Average petal length: ' + str(round(df['petal_length'][50:100].mean(), 1)))
+lst_ver.append('Average petal width: ' + str(round(df['petal_width'][50:100].mean(), 1)))
+lst_ver.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'][50:100].std(), 1)))
+lst_ver.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'][50:100].std(), 1)))
+lst_ver.append('Standard deviation of petal length: ' + str(round(df['petal_length'][50:100].std(), 1)))
+lst_ver.append('Standard deviation of petal width: ' + str(round(df['petal_width'][50:100].std(), 1)))
+
+lst_vir.append('Minimum sepal length: ' + str(df['sepal_length'][100:].min()))
+lst_vir.append('Minimum sepal width: ' + str(df['sepal_width'][100:].min()))
+lst_vir.append('Minimum petal length: ' + str(df['petal_length'][100:].min()))
+lst_vir.append('Minimum petal width: ' + str(df['petal_width'][100:].min()))
+lst_vir.append('Maximum sepal length: ' + str(df['sepal_length'][100:].max()))
+lst_vir.append('Maximum sepal width: ' + str(df['sepal_width'][100:].max()))
+lst_vir.append('Maximum petal length: ' + str(df['petal_length'][100:].max()))
+lst_vir.append('Maximum petal width: ' + str(df['petal_width'][100:].max()))
+lst_vir.append('Average sepal length: ' + str(round(df['sepal_length'][100:].mean(), 1)))
+lst_vir.append('Average sepal width: ' + str(round(df['sepal_width'][100:].mean(), 1)))
+lst_vir.append('Average petal length: ' + str(round(df['petal_length'][100:].mean(), 1)))
+lst_vir.append('Average petal width: ' + str(round(df['petal_width'][100:].mean(), 1)))
+lst_vir.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'][100:].std(), 1)))
+lst_vir.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'][100:].std(), 1)))
+lst_vir.append('Standard deviation of petal length: ' + str(round(df['petal_length'][100:].std(), 1)))
+lst_vir.append('Standard deviation of petal width: ' + str(round(df['petal_width'][100:].std(), 1)))
+```
+
+```Python
+with open('summary.py', 'w') as f:
+    
+    f.write('ALL SPECIES:\n')
+
+    for val in lst_tot:
+        f.write(val + '\n')
+
+    f.write('\nSETOSA:\n')    
+
+    for val in lst_set:
+        f.write(val + '\n')
+
+    f.write('\nVERSICOLOR:\n')
+
+    for val in lst_ver:
+        f.write(val + '\n')
+
+    f.write('\nVIRGINICA:\n')
+
+    for val in lst_vir:
+        f.write(val + '\n')
+```
+
+## Univariate Analysis
+Histograms provide a visualisation of numerical, univariate data by indicating the number of data points that lie within a range of values. These range of values are called classes or bins. The frequency of data that falls in each class is depicted by the use of a bar. The higher that bar is, the greater the frequency of data values in that bin. It can also be described as a bar chart for continuous data values. [Ref: Histogram](https://en.wikipedia.org/wiki/Histogram) The histograms below allow for the easy identification of the distribution and frequency of particular variables within the data set. 
 
 **Sepal Length**
 ![Sepal Length](sepal_length_histogram.png)
 
+As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm and the maximum is 7.9cm. The histogram above illustrates the frequency of these values.
+
 **Sepal Width**
 ![Sepal Width](sepal_width_histogram.png)
+
+As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm and the maximum is 4.4cm. The histogram above illustrates the frequency of these values.
 
 **Petal Length**
 ![Petal Length](petal_length_histogram.png)
 
+As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm and the maximum is 6.9cm. The histogram above illustrates the frequency of these values.
+
 **Petal Width**
 ![Petal Width](petal_width_histogram.png)
 
-## Analysis of Scatterplots
+As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm and the maximum is 2.5cm. The histogram above illustrates the frequency of these values.
+
+## Bi-Variate Analysis
+A scatterplot is a plot used to display values for typically two variables for a set of data. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis. [Ref: Scatterplot](https://en.wikipedia.org/wiki/Scatter_plot). This type of analysis will allow for a better understanding of the relationships between attributes.
 
 **Sepal Length vs. Sepal Width**
 ![Sepal Length vs. Sepal Width](sepal_length_vs_sepal_width_scatterplot.png)
@@ -206,6 +329,18 @@ Although the initial purpose of the data set was to identify the botanical varia
 ## Summary
 
 ![Pairplot](pairplot.png)
+
+## Executing the Python Script
+
+Follow these steps to generate the summary text file, histograms and scatterplots:
+1. Download and install Anaconda
+2. Download and install Visual Studio Code
+3. Create a new folder
+4. Save Fisher's Iris Flower Data Set as a .csv file in the folder
+5. Save analysis.py into the same folder
+6. Open this file in Visual Studio Code
+7. Open the integrated terminal in Visual Studio Code (Ctrl + ')
+8. Type 'python analysis.py' in the command prompt and press Enter
 
 ## References
 

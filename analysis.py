@@ -1,3 +1,6 @@
+#Gary Locke, 11-04-2020
+#A program that analyses Fisher's Iris Data Set
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as pl
@@ -14,7 +17,7 @@ lst_set = []
 lst_ver = []
 lst_vir = []
 
-#Applies the min, max and mean functions on each column and appends the string to the total list
+#Applies the min, max mean, and standard deviation functions on each column and appends the string to the total list
 lst_tot.append('Minimum sepal length: ' + str(df['sepal_length'].min()))
 lst_tot.append('Minimum sepal width: ' + str(df['sepal_width'].min()))
 lst_tot.append('Minimum petal length: ' + str(df['petal_length'].min()))
@@ -32,7 +35,7 @@ lst_tot.append('Standard deviation of sepal width: ' + str(round(df['sepal_width
 lst_tot.append('Standard deviation of petal length: ' + str(round(df['petal_length'].std(), 1)))
 lst_tot.append('Standard deviation of petal width: ' + str(round(df['petal_width'].std(), 1)))
 
-#Applies the min, max and mean functions on each colum and appends the string to the setosa list
+#Applies the min, max, mean, and standard deviation functions on each colum and appends the string to the setosa list
 lst_set.append('Minimum sepal length: ' + str(df['sepal_length'][0:50].min()))
 lst_set.append('Minimum sepal width: ' + str(df['sepal_width'][0:50].min()))
 lst_set.append('Minimum petal length: ' + str(df['petal_length'][0:50].min()))
@@ -50,7 +53,7 @@ lst_set.append('Standard deviation of sepal width: ' + str(round(df['sepal_width
 lst_set.append('Standard deviation of petal length: ' + str(round(df['petal_length'][0:50].std(), 1)))
 lst_set.append('Standard deviation of petal width: ' + str(round(df['petal_width'][0:50].std(), 1)))
 
-#Applies the min, max and mean functions on each colum and appends the string to the versicolor list
+#Applies the min, max, mean, and standard deviation functions on each colum and appends the string to the versicolor list
 lst_ver.append('Minimum sepal length: ' + str(df['sepal_length'][50:100].min()))
 lst_ver.append('Minimum sepal width: ' + str(df['sepal_width'][50:100].min()))
 lst_ver.append('Minimum petal length: ' + str(df['petal_length'][50:100].min()))
@@ -108,8 +111,6 @@ with open('summary.py', 'w') as f:
 
     for val in lst_vir:
         f.write(val + '\n')
-
-f.close()
 
 #https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
 data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
