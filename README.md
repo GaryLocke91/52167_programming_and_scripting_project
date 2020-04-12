@@ -171,22 +171,18 @@ Although the initial purpose of the data set was to identify the botanical varia
 
 ## Summary Statistics
 
-The data set is read using the read_csv function from the Pandas library and stored in a variable as a DataFrame. A DataFrame is a 2-dimensional labeled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref. DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html)
+The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. A DataFrame is a 2-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref. DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
 
 ```Python
 df = pd.read_csv('iris_data.csv')
-```
 
-The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
-
-```Python
 lst_tot = []
 lst_set = []
 lst_ver = []
 lst_vir = []
 ```
 
-The code below calculates the minimum, maximum, average, and standard deviation of each variable in the overall data set as well as each species individually. The ```append()``` method adds a single item (a string in this case) to the existing list.
+The minimum, maximum, average, and standard deviation of each variable is calculated for the overall data set as well as each species individually. The ```min()```, ```max()```, ```mean()```, and ```std()``` functions are used to generate summary statistics for each column.  The ```str()``` method is used to convert each calculation to a string, which is then concatenated with the rest of the sentence to form a single string. The ```append()``` method adds a single item to the existing list. Indexing with the ```[]``` operator finds the given element in the DataFrame and returns its position, so ```['sepal_length']``` returns the sepal length column, ```['sepal_width']``` returns the sepal width column, ```['petal_length']``` returns the petal length column, and ```['sepal_length']``` returns the sepal length column. Slicing with the ```[]``` operator returns a subset of the data set. As the setosa species is the first 50 rows, the versicolor species is the next 50 rows and the virginica species is the last 50 rows, ```[:50]```, ```[50:100]``` and ```[100:]``` returns those rows respectively. This allows the calculations to be applied to those rows only. [Ref: Indexing and selecting data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
 
 ```Python
 lst_tot.append('Minimum sepal length: ' + str(df['sepal_length'].min()))
@@ -206,22 +202,22 @@ lst_tot.append('Standard deviation of sepal width: ' + str(round(df['sepal_width
 lst_tot.append('Standard deviation of petal length: ' + str(round(df['petal_length'].std(), 1)))
 lst_tot.append('Standard deviation of petal width: ' + str(round(df['petal_width'].std(), 1)))
 
-lst_set.append('Minimum sepal length: ' + str(df['sepal_length'][0:50].min()))
-lst_set.append('Minimum sepal width: ' + str(df['sepal_width'][0:50].min()))
-lst_set.append('Minimum petal length: ' + str(df['petal_length'][0:50].min()))
-lst_set.append('Minimum petal width: ' + str(df['petal_width'][0:50].min()))
-lst_set.append('Maximum sepal length: ' + str(df['sepal_length'][0:50].max()))
-lst_set.append('Maximum sepal width: ' + str(df['sepal_width'][0:50].max()))
-lst_set.append('Maximum petal length: ' + str(df['petal_length'][0:50].max()))
-lst_set.append('Maximum petal width: ' + str(df['petal_width'][0:50].max()))
-lst_set.append('Average sepal length: ' + str(round(df['sepal_length'][0:50].mean(), 1)))
-lst_set.append('Average sepal width: ' + str(round(df['sepal_width'][0:50].mean(), 1)))
-lst_set.append('Average petal length: ' + str(round(df['petal_length'][0:50].mean(), 1)))
-lst_set.append('Average petal width: ' + str(round(df['petal_width'][0:50].mean(), 1)))
-lst_set.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'][0:50].std(), 1)))
-lst_set.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'][0:50].std(), 1)))
-lst_set.append('Standard deviation of petal length: ' + str(round(df['petal_length'][0:50].std(), 1)))
-lst_set.append('Standard deviation of petal width: ' + str(round(df['petal_width'][0:50].std(), 1)))
+lst_set.append('Minimum sepal length: ' + str(df['sepal_length'][:50].min()))
+lst_set.append('Minimum sepal width: ' + str(df['sepal_width'][:50].min()))
+lst_set.append('Minimum petal length: ' + str(df['petal_length'][:50].min()))
+lst_set.append('Minimum petal width: ' + str(df['petal_width'][:50].min()))
+lst_set.append('Maximum sepal length: ' + str(df['sepal_length'][:50].max()))
+lst_set.append('Maximum sepal width: ' + str(df['sepal_width'][:50].max()))
+lst_set.append('Maximum petal length: ' + str(df['petal_length'][:50].max()))
+lst_set.append('Maximum petal width: ' + str(df['petal_width'][:50].max()))
+lst_set.append('Average sepal length: ' + str(round(df['sepal_length'][:50].mean(), 1)))
+lst_set.append('Average sepal width: ' + str(round(df['sepal_width'][:50].mean(), 1)))
+lst_set.append('Average petal length: ' + str(round(df['petal_length'][:50].mean(), 1)))
+lst_set.append('Average petal width: ' + str(round(df['petal_width'][:50].mean(), 1)))
+lst_set.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'][:50].std(), 1)))
+lst_set.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'][:50].std(), 1)))
+lst_set.append('Standard deviation of petal length: ' + str(round(df['petal_length'][:50].std(), 1)))
+lst_set.append('Standard deviation of petal width: ' + str(round(df['petal_width'][:50].std(), 1)))
 
 lst_ver.append('Minimum sepal length: ' + str(df['sepal_length'][50:100].min()))
 lst_ver.append('Minimum sepal width: ' + str(df['sepal_width'][50:100].min()))
@@ -258,8 +254,10 @@ lst_vir.append('Standard deviation of petal length: ' + str(round(df['petal_leng
 lst_vir.append('Standard deviation of petal width: ' + str(round(df['petal_width'][100:].std(), 1)))
 ```
 
+A writable text file named 'summary.txt' is created using the ```open()``` method, and writes each element of each list in turn to the file using a For loop and the ```write()``` method. 
+
 ```Python
-with open('summary.py', 'w') as f:
+with open('summary.txt', 'w') as f:
     
     f.write('ALL SPECIES:\n')
 

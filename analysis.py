@@ -36,22 +36,22 @@ lst_tot.append('Standard deviation of petal length: ' + str(round(df['petal_leng
 lst_tot.append('Standard deviation of petal width: ' + str(round(df['petal_width'].std(), 1)))
 
 #Applies the min, max, mean, and standard deviation functions on each colum and appends the string to the setosa list
-lst_set.append('Minimum sepal length: ' + str(df['sepal_length'][0:50].min()))
-lst_set.append('Minimum sepal width: ' + str(df['sepal_width'][0:50].min()))
-lst_set.append('Minimum petal length: ' + str(df['petal_length'][0:50].min()))
-lst_set.append('Minimum petal width: ' + str(df['petal_width'][0:50].min()))
-lst_set.append('Maximum sepal length: ' + str(df['sepal_length'][0:50].max()))
-lst_set.append('Maximum sepal width: ' + str(df['sepal_width'][0:50].max()))
-lst_set.append('Maximum petal length: ' + str(df['petal_length'][0:50].max()))
-lst_set.append('Maximum petal width: ' + str(df['petal_width'][0:50].max()))
-lst_set.append('Average sepal length: ' + str(round(df['sepal_length'][0:50].mean(), 1)))
-lst_set.append('Average sepal width: ' + str(round(df['sepal_width'][0:50].mean(), 1)))
-lst_set.append('Average petal length: ' + str(round(df['petal_length'][0:50].mean(), 1)))
-lst_set.append('Average petal width: ' + str(round(df['petal_width'][0:50].mean(), 1)))
-lst_set.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'][0:50].std(), 1)))
-lst_set.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'][0:50].std(), 1)))
-lst_set.append('Standard deviation of petal length: ' + str(round(df['petal_length'][0:50].std(), 1)))
-lst_set.append('Standard deviation of petal width: ' + str(round(df['petal_width'][0:50].std(), 1)))
+lst_set.append('Minimum sepal length: ' + str(df['sepal_length'][:50].min()))
+lst_set.append('Minimum sepal width: ' + str(df['sepal_width'][:50].min()))
+lst_set.append('Minimum petal length: ' + str(df['petal_length'][:50].min()))
+lst_set.append('Minimum petal width: ' + str(df['petal_width'][:50].min()))
+lst_set.append('Maximum sepal length: ' + str(df['sepal_length'][:50].max()))
+lst_set.append('Maximum sepal width: ' + str(df['sepal_width'][:50].max()))
+lst_set.append('Maximum petal length: ' + str(df['petal_length'][:50].max()))
+lst_set.append('Maximum petal width: ' + str(df['petal_width'][:50].max()))
+lst_set.append('Average sepal length: ' + str(round(df['sepal_length'][:50].mean(), 1)))
+lst_set.append('Average sepal width: ' + str(round(df['sepal_width'][:50].mean(), 1)))
+lst_set.append('Average petal length: ' + str(round(df['petal_length'][:50].mean(), 1)))
+lst_set.append('Average petal width: ' + str(round(df['petal_width'][:50].mean(), 1)))
+lst_set.append('Standard deviation of sepal length: ' + str(round(df['sepal_length'][:50].std(), 1)))
+lst_set.append('Standard deviation of sepal width: ' + str(round(df['sepal_width'][:50].std(), 1)))
+lst_set.append('Standard deviation of petal length: ' + str(round(df['petal_length'][:50].std(), 1)))
+lst_set.append('Standard deviation of petal width: ' + str(round(df['petal_width'][:50].std(), 1)))
 
 #Applies the min, max, mean, and standard deviation functions on each colum and appends the string to the versicolor list
 lst_ver.append('Minimum sepal length: ' + str(df['sepal_length'][50:100].min()))
@@ -90,7 +90,7 @@ lst_vir.append('Standard deviation of petal length: ' + str(round(df['petal_leng
 lst_vir.append('Standard deviation of petal width: ' + str(round(df['petal_width'][100:].std(), 1)))
 
 #Creats a writable text file and writes each element of each list in turn
-with open('summary.py', 'w') as f:
+with open('summary.txt', 'w') as f:
     
     f.write('ALL SPECIES:\n')
 
