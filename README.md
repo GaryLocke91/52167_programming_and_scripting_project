@@ -283,25 +283,68 @@ with open('summary.txt', 'w') as f:
 ## Univariate Analysis
 Histograms provide a visualisation of numerical, univariate data by indicating the number of data points that lie within a range of values. These range of values are called classes or bins. The frequency of data that falls in each class is depicted by the use of a bar. The higher that bar is, the greater the frequency of data values in that bin. It can also be described as a bar chart for continuous data values. [Ref: Histogram](https://en.wikipedia.org/wiki/Histogram) The histograms below allow for the easy identification of the distribution and frequency of particular variables within the data set. 
 
+To generate histograms for each column in the data set, the ```genfromtxt()``` method from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to 1 to exclude the column headings. 
+
+```Python
+data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
+```
+
+Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. 
+
+```Python
+col_1 = data_set[:,0]
+pl.hist(col_1, bins=20, color='#3F5D7D')
+pl.title('Sepal Length', fontsize=16)
+pl.grid(which='major', axis='y')
+pl.xlabel('Length (cm)')
+pl.ylabel('Frequency')
+pl.show()
+
+col_2 = data_set[:,1]
+pl.hist(col_2, bins=20, color='#3F5D7D')
+pl.title('Sepal Width', fontsize=16)
+pl.grid(which='major', axis='y')
+pl.xlabel('Width (cm)')
+pl.ylabel('Frequency')
+pl.show()
+
+col_3 = data_set[:,2]
+pl.hist(col_3, bins=20, color='#3F5D7D')
+pl.title('Petal Length', fontsize=16)
+pl.grid(which='major', axis='y')
+pl.xlabel('Length (cm)')
+pl.ylabel('Frequency')
+pl.show()
+
+col_4 = data_set[:,3]
+pl.hist(col_4, bins=20, color='#3F5D7D')
+pl.title('Petal Width', fontsize=16)
+pl.grid(which='major', axis='y')
+pl.xlabel('Width (cm)')
+pl.ylabel('Frequency')
+
+pl.show()
+```
+
 **Sepal Length**
 ![Sepal Length](sepal_length_histogram.png)
 
-As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm and the maximum is 7.9cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm, the maximum is 7.9cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values.
 
 **Sepal Width**
 ![Sepal Width](sepal_width_histogram.png)
 
-As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm and the maximum is 4.4cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm, the maximum is 4.4cm, and the standard deviation is 0.4cm. The histogram above illustrates the frequency of these values.
 
 **Petal Length**
 ![Petal Length](petal_length_histogram.png)
 
-As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm and the maximum is 6.9cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm, the maximum is 6.9cm, and the standard deviation is 1.8cm. The histogram above illustrates the frequency of these values.
 
 **Petal Width**
 ![Petal Width](petal_width_histogram.png)
 
-As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm and the maximum is 2.5cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values.
 
 ## Bi-Variate Analysis
 A scatterplot is a plot used to display values for typically two variables for a set of data. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis. [Ref: Scatterplot](https://en.wikipedia.org/wiki/Scatter_plot). This type of analysis will allow for a better understanding of the relationships between attributes.
