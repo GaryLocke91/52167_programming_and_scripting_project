@@ -147,61 +147,60 @@ pl.title('Petal Width', fontsize=16)
 pl.grid(which='major', axis='y')
 pl.xlabel('Width (cm)')
 pl.ylabel('Frequency')
-
 pl.show()
 
-iris = pd.read_csv('iris_data.csv')
+iris_data = pd.read_csv('iris_data.csv')
 
 #https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085
-iris['Sepal Length (cm)'] = iris['sepal_length']
-iris['Sepal Width (cm)'] = iris['sepal_width']
+iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
+iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
 #https://seaborn.pydata.org/generated/seaborn.lmplot.html
-sn.lmplot(x='Sepal Length (cm)', y='Sepal Width (cm)', data=iris, hue='species', fit_reg=False, legend=False)
+sn.lmplot(x='Sepal Length (cm)', y='Sepal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
 pl.legend()
 pl.grid(which='major', axis='both')
 pl.suptitle('Sepal Length vs. Sepal Width', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
-iris['Petal Length (cm)'] = iris['petal_length']
-iris['Petal Width (cm)'] = iris['petal_width']
-sn.lmplot(x='Petal Length (cm)', y='Petal Width (cm)', data=iris, hue='species', fit_reg=False, legend=False)
+iris_data['Petal Length (cm)'] = iris_data['petal_length']
+iris_data['Petal Width (cm)'] = iris_data['petal_width']
+sn.lmplot(x='Petal Length (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
 pl.legend()
 pl.grid(which='major', axis='both')
 pl.suptitle('Petal Length vs. Petal Width', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
-iris['Sepal Length (cm)'] = iris['sepal_length']
-iris['Petal Length (cm)'] = iris['petal_length']
-sn.lmplot(x='Sepal Length (cm)', y='Petal Length (cm)', data=iris, hue='species', fit_reg=False, legend=False)
+iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
+iris_data['Petal Length (cm)'] = iris_data['petal_length']
+sn.lmplot(x='Sepal Length (cm)', y='Petal Length (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
 pl.legend()
 pl.grid(which='major', axis='both')
 pl.suptitle('Sepal Length vs. Petal Length', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
-iris['Sepal Width (cm)'] = iris['sepal_width']
-iris['Petal Width (cm)'] = iris['petal_width']
-sn.lmplot(x='Sepal Width (cm)', y='Petal Width (cm)', data=iris, hue='species', fit_reg=False, legend=False)
+iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
+iris_data['Petal Width (cm)'] = iris_data['petal_width']
+sn.lmplot(x='Sepal Width (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
 pl.legend()
 pl.grid(which='major', axis='both')
 pl.suptitle('Sepal Width vs. Petal Width', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
-iris['Sepal Width (cm)'] = iris['sepal_width']
-iris['Petal Length (cm)'] = iris['petal_length']
-sn.lmplot(x='Sepal Width (cm)', y='Petal Length (cm)', data=iris, hue='species', fit_reg=False, legend=False)
+iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
+iris_data['Petal Length (cm)'] = iris_data['petal_length']
+sn.lmplot(x='Sepal Width (cm)', y='Petal Length (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
 pl.legend()
 pl.grid(which='major', axis='both')
 pl.suptitle('Sepal Width vs. Petal Length', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
-iris['Sepal Length (cm)'] = iris['sepal_length']
-iris['Petal Width (cm)'] = iris['petal_width']
-sn.lmplot(x='Sepal Length (cm)', y='Petal Width (cm)', data=iris, hue='species', fit_reg=False, legend=False)
+iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
+iris_data['Petal Width (cm)'] = iris_data['petal_width']
+sn.lmplot(x='Sepal Length (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
 pl.legend()
 pl.grid(which='major', axis='both')
 pl.suptitle('Sepal Length vs. Petal Width', fontsize=16)
@@ -211,9 +210,9 @@ pl.show()
 header_lst = ['Sepal Length (cm)', 'Sepal Width (cm)', 'Petal Length (cm)', 'Petal Width (cm)', 'Species']
 #https://seaborn.pydata.org/generated/seaborn.pairplot.html
 #https://kite.com/python/answers/how-to-set-column-names-when-importing-a-csv-into-a-pandas-dataframe-in-python 
-iris = pd.read_csv('iris_data.csv', skiprows=1, names=header_lst)
+iris_data = pd.read_csv('iris_data.csv', skiprows=1, names=header_lst)
 
-g = sn.pairplot(iris, hue='Species', markers='+')
+g = sn.pairplot(iris_data, hue='Species', markers='+')
 #https://stackoverflow.com/questions/36813396/how-to-show-the-title-for-the-diagram-of-seaborn-pairplot-or-pridgrid
 g.fig.suptitle("Fisher's Iris Data Set", size=16)
 g.fig.subplots_adjust(top=.9)

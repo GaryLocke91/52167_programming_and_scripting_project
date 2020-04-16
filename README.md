@@ -289,7 +289,7 @@ To generate histograms for each column in the data set, the ```genfromtxt()``` m
 data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
 ```
 
-Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. 
+Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. The ```pyplot.hist()``` function plots a histogram. 
 
 ```Python
 col_1 = data_set[:,0]
@@ -322,50 +322,119 @@ pl.title('Petal Width', fontsize=16)
 pl.grid(which='major', axis='y')
 pl.xlabel('Width (cm)')
 pl.ylabel('Frequency')
-
 pl.show()
 ```
 
 **Sepal Length**
 ![Sepal Length](sepal_length_histogram.png)
 
-As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm, the maximum is 7.9cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm, the maximum is 7.9cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. From the above histogram, the minimum value of sepal length starts on the x axis at 4.3cm and the maximum value of finishes on the x axis at 7.9cm. The y axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 5.5 to 6.0 region which demonstrates that the highest frequency of sepal length values are in this region.
 
 **Sepal Width**
 ![Sepal Width](sepal_width_histogram.png)
 
-As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm, the maximum is 4.4cm, and the standard deviation is 0.4cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm, the maximum is 4.4cm, and the standard deviation is 0.4cm. The histogram above illustrates the frequency of these values. From the above histogram, I can see minimum value of sepal width starting on the x axis at 2.0 and the maximum value of sepal width finishing on the x axis at 4.4. The y axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 3.0 to 3.2 region which demonstrates that the highest frequency of sepal width values are in this region. I have also previously ran some python code to calculate the average of the values of sepal width to be 3.05.
 
 **Petal Length**
 ![Petal Length](petal_length_histogram.png)
 
-As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm, the maximum is 6.9cm, and the standard deviation is 1.8cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm, the maximum is 6.9cm, and the standard deviation is 1.8cm. The histogram above illustrates the frequency of these values. From the above histogram, I can see minimum value of petal length starting on the x axis at 1.0 and the maximum value of petal length finishing on the x axis at 6.9. The y axis also shows the frequency in which these values occur. This histogram shows that although the average of petal length values is 3.05, the highest frequency of petal length values is not in this region. The frequency of this value is actually only around 3 to 4. There are two peaks in the histogram around the 1.0 to 2.0 values and the 3.0 to 4.0 to values. The average of value of petal length is actually an average of these two peaks.
 
 **Petal Width**
 ![Petal Width](petal_width_histogram.png)
 
-As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values.
+As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. From the above histogram, I can see minimum value of petal width starting on the x axis at 0.1 and the maximum value of petal length finishing on the x axis at 2.5. The y axis also shows the frequency in which these values occur. This histogram shows that although the average of petal length values is 1.19, there aappears to be 3 peaks in the frequency of the values of petal width - at .01, 1.5 and 2.0. The average of value of petal length is actually an average of these three peaks.
 
 ## Bi-Variate Analysis
 A scatterplot is a plot used to display values for typically two variables for a set of data. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis. [Ref: Scatterplot](https://en.wikipedia.org/wiki/Scatter_plot). This type of analysis will allow for a better understanding of the relationships between attributes.
 
+```Python
+iris_data = pd.read_csv('iris_data.csv')
+
+iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
+iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
+sn.lmplot(x='Sepal Length (cm)', y='Sepal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
+pl.legend()
+pl.grid(which='major', axis='both')
+pl.suptitle('Sepal Length vs. Sepal Width', fontsize=16)
+pl.subplots_adjust(top=0.9)
+pl.show()
+
+iris_data['Petal Length (cm)'] = iris_data['petal_length']
+iris_data['Petal Width (cm)'] = iris_data['petal_width']
+sn.lmplot(x='Petal Length (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
+pl.legend()
+pl.grid(which='major', axis='both')
+pl.suptitle('Petal Length vs. Petal Width', fontsize=16)
+pl.subplots_adjust(top=0.9)
+pl.show()
+
+iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
+iris_data['Petal Length (cm)'] = iris_data['petal_length']
+sn.lmplot(x='Sepal Length (cm)', y='Petal Length (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
+pl.legend()
+pl.grid(which='major', axis='both')
+pl.suptitle('Sepal Length vs. Petal Length', fontsize=16)
+pl.subplots_adjust(top=0.9)
+pl.show()
+
+iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
+iris_data['Petal Width (cm)'] = iris_data['petal_width']
+sn.lmplot(x='Sepal Width (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
+pl.legend()
+pl.grid(which='major', axis='both')
+pl.suptitle('Sepal Width vs. Petal Width', fontsize=16)
+pl.subplots_adjust(top=0.9)
+pl.show()
+
+iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
+iris_data['Petal Length (cm)'] = iris_data['petal_length']
+sn.lmplot(x='Sepal Width (cm)', y='Petal Length (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
+pl.legend()
+pl.grid(which='major', axis='both')
+pl.suptitle('Sepal Width vs. Petal Length', fontsize=16)
+pl.subplots_adjust(top=0.9)
+pl.show()
+
+iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
+iris_data['Petal Width (cm)'] = iris_data['petal_width']
+sn.lmplot(x='Sepal Length (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
+pl.legend()
+pl.grid(which='major', axis='both')
+pl.suptitle('Sepal Length vs. Petal Width', fontsize=16)
+pl.subplots_adjust(top=0.9)
+pl.show()
+```
+
 **Sepal Length vs. Sepal Width**
 ![Sepal Length vs. Sepal Width](sepal_length_vs_sepal_width_scatterplot.png)
+
+For the setosa species, the above scatter plot shows that the sepals of this species tend to be wider but not longer than the sepals of the other two species. The sepals of the versicolour species tend to be longer than the setosa species but tend not to be as wide. The sepals of the virginica species tend to be the longest of all the three species but these sepals don't tend to be as a wide as the setosa species.
 
 **Petal Length vs. Petal Width**
 ![Petal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
 
+For the setosa species, the above scatter plot shows that the petals of this species tend to be the smallest of all three species. The sepals of the versicolour species tend to be longer and wider than the setosa species but not log and wide as the virginica species. The petals of the virginica species are the largest of all three species.
+
 **Sepal Length vs. Petal Length**
 ![Sepal Length vs. Petal Length](sepal_length_vs_petal_length_scatterplot.png)
+
+For the setosa species, the above scatter plot shows that the sepals and petals of this species tend to be the shortest of all three species. The sepals and petals of the versicolour species tend to be longer than the setosa species but as not long as the virginica species. The sepals and petals of the virginica species are the largest of all three species.
 
 **Sepal Width vs Petal Width**
 ![Sepal Width vs Petal Width](sepal_width_vs_petal_width_scatterplot.png)
 
+For the setosa species, the above scatter plot shows that the sepals and petals of this species tend to be the least wide of all three species. The sepals and petals of the versicolour species tend to be wider than the setosa species but as not wide as the virginica species. The sepals and petals of the virginica species are the widest of all three species.
+
 **Sepal Width vs. Petal Length**
 ![Sepal Width vs. Petal Length](sepal_width_vs_petal_length_scatterplot.png)
 
+For the setosa species, the above scatter plot shows that this species appears to have the widest sepals but it also has the shortest petals. The sepals of the versicolour species are not as wide as the setosa species but it's petals are longer. The sepals of the virginia species are not as wide as the setosa species but it's petals of the virginica species are the longest of all three species.
+
 **Sepal Length vs. Petal Width**
 ![Sepal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
+
+For the setosa species, the above scatter plot shows that the petal widths and sepal lengths of this species tend to be the shortest of all three species. The petal widths and sepal lengths of the versicolour species tend to be longer than the setosa species but as not long as the virginica species. The petal widths and sepal lengths of the virginica species are the longest of all three species.
 
 ## Summary
 
