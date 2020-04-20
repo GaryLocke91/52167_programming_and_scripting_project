@@ -1,8 +1,19 @@
 # Programming and Scripting Project
-## Problem Statement
+
+## Contents
+1. Problem Statement
+2. Summary of Fisher's Iris Data Set
+3. Summary Statistics
+4. Univariate Analysis
+5. Bi-Variate Analysis
+6. Summary
+7. Executing the Python Script
+8. References
+
+## 1. Problem Statement
 This project concerns the well-known Fisher's Iris data set. You must research the data set and write documentation and code in Python to investigate it. An online search for information on the data set will convince you that many people have investigated it previously. You are expected to be able to break this project into several smaller tasks that are easier to solve, and to plug these together after they have been completed.
 
-## Summary of Fisher's Iris Data Set
+## 2. Summary of Fisher's Iris Data Set
 
 ![Ronald Fischer](Ronald_Fisher.jpg)
 
@@ -169,7 +180,7 @@ Although the initial purpose of the data set was to identify the botanical varia
 6.2 | 3.4 | 5.4 | 2.3 | virginica
 5.9 | 3.0 | 5.1 | 1.8 | virginica
 
-## Summary Statistics
+## 3. Summary Statistics
 
 The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. A DataFrame is a 2-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref. DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
 
@@ -280,16 +291,16 @@ with open('summary.txt', 'w') as f:
         f.write(val + '\n')
 ```
 
-## Univariate Analysis
+## 4. Univariate Analysis
 Histograms provide a visualisation of numerical, univariate data by indicating the number of data points that lie within a range of values. These range of values are called classes or bins. The frequency of data that falls in each class is depicted by the use of a bar. The higher that bar is, the greater the frequency of data values in that bin. It can also be described as a bar chart for continuous data values. [Ref: Histogram](https://en.wikipedia.org/wiki/Histogram) The histograms below allow for the easy identification of the distribution and frequency of particular variables within the data set. 
 
-To generate histograms for each column in the data set, the ```genfromtxt()``` method from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to 1 to exclude the column headings. 
+To generate histograms for each column in the data set, the ```genfromtxt()``` method from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to '1' to exclude the column headings. 
 
 ```Python
 data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
 ```
 
-Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. The ```pyplot.hist()``` function plots a histogram. 
+Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. In the code below, indexing is first applied to select each column in the array and are then assigned to a variable: ```col_1 = data_set[:,0]```, ```col_2 = data_set[:,1]```, ```col_3 = data_set[:,2]```, and ```col_4 = data_set[:,3]```. The ```pyplot.hist()``` function plots a histogram and sets the number of bins and colour of the bars. The ```pl.title()``` function applies a title to the output and sets the font size. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'y' to only show major grid lines on the y-axis. The ```pl.xlabel()``` and ```pl.ylabel()``` functions applies labels to the x-axis and y-axis respectively, while the ```pl.show()``` outputs the histograms in PNG format.
 
 ```Python
 col_1 = data_set[:,0]
@@ -345,7 +356,7 @@ As established in the generated summary file, the average petal length is 3.8cm,
 
 As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. From the above histogram, I can see minimum value of petal width starting on the x axis at 0.1 and the maximum value of petal length finishing on the x axis at 2.5. The y axis also shows the frequency in which these values occur. This histogram shows that although the average of petal length values is 1.19, there aappears to be 3 peaks in the frequency of the values of petal width - at .01, 1.5 and 2.0. The average of value of petal length is actually an average of these three peaks.
 
-## Bi-Variate Analysis
+## 5. Bi-Variate Analysis
 A scatterplot is a plot used to display values for typically two variables for a set of data. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis. [Ref: Scatterplot](https://en.wikipedia.org/wiki/Scatter_plot). This type of analysis will allow for a better understanding of the relationships between attributes.
 
 ```Python
@@ -436,11 +447,11 @@ For the setosa species, the above scatter plot shows that this species appears t
 
 For the setosa species, the above scatter plot shows that the petal widths and sepal lengths of this species tend to be the shortest of all three species. The petal widths and sepal lengths of the versicolour species tend to be longer than the setosa species but as not long as the virginica species. The petal widths and sepal lengths of the virginica species are the longest of all three species.
 
-## Summary
+## 6. Summary
 
 ![Pairplot](pairplot.png)
 
-## Executing the Python Script
+## 7. Executing the Python Script
 
 Follow these steps to generate the summary text file, histograms and scatterplots:
 1. Download and install Anaconda
@@ -452,7 +463,7 @@ Follow these steps to generate the summary text file, histograms and scatterplot
 7. Open the integrated terminal in Visual Studio Code (Ctrl + ')
 8. Type 'python analysis.py' in the command prompt and press Enter
 
-## References
+## 8. References
 
 Iris flower data set available at: http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
 
