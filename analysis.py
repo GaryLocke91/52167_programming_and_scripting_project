@@ -7,7 +7,6 @@ import matplotlib.pyplot as pl
 import seaborn as sn
 
 #Reads the file into DataFrame
-#https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html
 df = pd.read_csv('iris_data.csv')
 
 #Creates empty lists for the overall data set and individual species
@@ -112,11 +111,10 @@ with open('summary.txt', 'w') as f:
     for val in lst_vir:
         f.write(val + '\n')
 
-#https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
+#Reads the file, separates the values using a comma as the delimiter and excludes the headers
 data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
 
-#http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/
-#https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html 
+#Creates a histogram for sepal length 
 col_1 = data_set[:,0]
 pl.hist(col_1, bins=20, color='#3F5D7D')
 pl.title('Sepal Length', fontsize=16)
@@ -125,6 +123,7 @@ pl.xlabel('Length (cm)')
 pl.ylabel('Frequency')
 pl.show()
 
+#Creates a histogram for sepal width
 col_2 = data_set[:,1]
 pl.hist(col_2, bins=20, color='#3F5D7D')
 pl.title('Sepal Width', fontsize=16)
@@ -133,6 +132,7 @@ pl.xlabel('Width (cm)')
 pl.ylabel('Frequency')
 pl.show()
 
+#Creates a histogram for petal length
 col_3 = data_set[:,2]
 pl.hist(col_3, bins=20, color='#3F5D7D')
 pl.title('Petal Length', fontsize=16)
@@ -141,6 +141,7 @@ pl.xlabel('Length (cm)')
 pl.ylabel('Frequency')
 pl.show()
 
+#Creates a histogram for petal width
 col_4 = data_set[:,3]
 pl.hist(col_4, bins=20, color='#3F5D7D')
 pl.title('Petal Width', fontsize=16)
@@ -149,12 +150,12 @@ pl.xlabel('Width (cm)')
 pl.ylabel('Frequency')
 pl.show()
 
+#Reads the file into DataFrame
 iris_data = pd.read_csv('iris_data.csv')
 
-#https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085
+#Creates a scatterplot for sepal length vs. sepal width
 iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
 iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
-#https://seaborn.pydata.org/generated/seaborn.lmplot.html
 sn.lmplot(x='Sepal Length (cm)', y='Sepal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
 pl.legend()
 pl.grid(which='major', axis='both')
@@ -162,6 +163,7 @@ pl.suptitle('Sepal Length vs. Sepal Width', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
+#Creates a scatterplot for petal length vs. petal width
 iris_data['Petal Length (cm)'] = iris_data['petal_length']
 iris_data['Petal Width (cm)'] = iris_data['petal_width']
 sn.lmplot(x='Petal Length (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
@@ -171,6 +173,7 @@ pl.suptitle('Petal Length vs. Petal Width', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
+#Creates a scatterplot for sepal length vs. petal length
 iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
 iris_data['Petal Length (cm)'] = iris_data['petal_length']
 sn.lmplot(x='Sepal Length (cm)', y='Petal Length (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
@@ -180,6 +183,7 @@ pl.suptitle('Sepal Length vs. Petal Length', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
+#Creates a scatterplot for sepal width vs. petal width
 iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
 iris_data['Petal Width (cm)'] = iris_data['petal_width']
 sn.lmplot(x='Sepal Width (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
@@ -189,6 +193,7 @@ pl.suptitle('Sepal Width vs. Petal Width', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
+#Creates a scatterplot for sepal width vs. petal length
 iris_data['Sepal Width (cm)'] = iris_data['sepal_width']
 iris_data['Petal Length (cm)'] = iris_data['petal_length']
 sn.lmplot(x='Sepal Width (cm)', y='Petal Length (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
@@ -198,6 +203,7 @@ pl.suptitle('Sepal Width vs. Petal Length', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
+#Creates a scatterplot for sepal length vs. petal width
 iris_data['Sepal Length (cm)'] = iris_data['sepal_length']
 iris_data['Petal Width (cm)'] = iris_data['petal_width']
 sn.lmplot(x='Sepal Length (cm)', y='Petal Width (cm)', data=iris_data, hue='species', fit_reg=False, legend=False)
@@ -207,15 +213,12 @@ pl.suptitle('Sepal Length vs. Petal Width', fontsize=16)
 pl.subplots_adjust(top=0.9)
 pl.show()
 
+#Creates a scatterplot matrix for all variables
 header_lst = ['Sepal Length (cm)', 'Sepal Width (cm)', 'Petal Length (cm)', 'Petal Width (cm)', 'Species']
-#https://seaborn.pydata.org/generated/seaborn.pairplot.html
-#https://kite.com/python/answers/how-to-set-column-names-when-importing-a-csv-into-a-pandas-dataframe-in-python 
 iris_data = pd.read_csv('iris_data.csv', skiprows=1, names=header_lst)
 
 g = sn.pairplot(iris_data, hue='Species', markers='+')
-#https://stackoverflow.com/questions/36813396/how-to-show-the-title-for-the-diagram-of-seaborn-pairplot-or-pridgrid
 g.fig.suptitle("Fisher's Iris Data Set", size=16)
 g.fig.subplots_adjust(top=.9)
-#https://stackoverflow.com/questions/50619895/customizing-pairplot-in-matplotlib-seaborn 
 g._legend.get_title().set_fontsize(12)
 pl.show()

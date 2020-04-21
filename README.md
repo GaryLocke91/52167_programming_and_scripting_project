@@ -447,7 +447,7 @@ For the setosa species, the above scatter plot shows that this species appears t
 
 For the setosa species, the above scatter plot shows that the petal widths and sepal lengths of this species tend to be the shortest of all three species. The petal widths and sepal lengths of the versicolour species tend to be longer than the setosa species but as not long as the virginica species. The petal widths and sepal lengths of the virginica species are the longest of all three species.
 
-## 6. Summary
+## 6. Scatterplot Matrix
 
 ![Pairplot](pairplot.png)
 
@@ -479,3 +479,23 @@ Alternative uses of the Iris flower data set available at: https://www.techopedi
 Visualising and understanding the Iris dataset available at: https://mc.ai/visualization-and-understanding-iris-dataset/
 
 Using machine learning to categorise Iris flowers available at: https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+
+https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html 
+
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
+
+http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/
+
+https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html 
+
+https://seaborn.pydata.org/generated/seaborn.lmplot.html
+
+https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085
+
+https://seaborn.pydata.org/generated/seaborn.pairplot.html
+
+https://kite.com/python/answers/how-to-set-column-names-when-importing-a-csv-into-a-pandas-dataframe-in-python
+
+https://stackoverflow.com/questions/36813396/how-to-show-the-title-for-the-diagram-of-seaborn-pairplot-or-pridgrid
+
+https://stackoverflow.com/questions/50619895/customizing-pairplot-in-matplotlib-seaborn 
