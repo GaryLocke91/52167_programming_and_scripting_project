@@ -6,7 +6,7 @@
 3. Summary Statistics
 4. Univariate Analysis
 5. Bi-Variate Analysis
-6. Summary
+6. Scatterplot Matrix
 7. Executing the Python Script
 8. References
 
@@ -182,7 +182,7 @@ Although the initial purpose of the data set was to identify the botanical varia
 
 ## 3. Summary Statistics
 
-The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. A DataFrame is a 2-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref. DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
+The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. [Ref: pandas.read_csv](https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html) A DataFrame is a 2-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref: DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
 
 ```Python
 df = pd.read_csv('iris_data.csv')
@@ -193,7 +193,7 @@ lst_ver = []
 lst_vir = []
 ```
 
-The minimum, maximum, average, and standard deviation of each variable is calculated for the overall data set as well as each species individually. The ```min()```, ```max()```, ```mean()```, and ```std()``` functions are used to generate summary statistics for each column.  The ```str()``` method is used to convert each calculation to a string, which is then concatenated with the rest of the sentence to form a single string. The ```append()``` method adds a single item to the existing list. Indexing with the ```[]``` operator finds the given element in the DataFrame and returns its position, so ```['sepal_length']``` returns the sepal length column, ```['sepal_width']``` returns the sepal width column, ```['petal_length']``` returns the petal length column, and ```['sepal_length']``` returns the sepal length column. Slicing with the ```[]``` operator returns a subset of the data set. As the setosa species is the first 50 rows, the versicolor species is the next 50 rows and the virginica species is the last 50 rows, ```[:50]```, ```[50:100]``` and ```[100:]``` returns those rows respectively. This allows the calculations to be applied to those rows only. [Ref: Indexing and selecting data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
+The minimum, maximum, average, and standard deviation of each variable is calculated for the overall data set as well as each species individually. The ```min()```, ```max()```, ```mean()```, and ```std()``` functions generate summary statistics for each column.  The ```str()``` method converts each calculation to a string, which is then concatenated with the rest of the sentence to form a single string. The ```append()``` method adds a single item to the existing list. Indexing with the ```[]``` operator finds the given element in the DataFrame and returns its position, so ```['sepal_length']``` returns the sepal length column, ```['sepal_width']``` returns the sepal width column, ```['petal_length']``` returns the petal length column, and ```['sepal_length']``` returns the sepal length column. Slicing with the ```[]``` operator returns a subset of the data set. As the setosa species is the first 50 rows, the versicolor species is the next 50 rows and the virginica species is the last 50 rows, ```[:50]```, ```[50:100]``` and ```[100:]``` returns those rows respectively. This allows the calculations to be applied to those rows only. [Ref: Indexing and selecting data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
 
 ```Python
 lst_tot.append('Minimum sepal length: ' + str(df['sepal_length'].min()))
@@ -339,22 +339,22 @@ pl.show()
 **Sepal Length**
 ![Sepal Length](sepal_length_histogram.png)
 
-As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm, the maximum is 7.9cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. From the above histogram, the minimum value of sepal length starts on the x axis at 4.3cm and the maximum value of finishes on the x axis at 7.9cm. The y axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 5.5 to 6.0 region which demonstrates that the highest frequency of sepal length values are in this region.
+As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm, the maximum is 7.9cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. The minimum value of sepal length starts on the x-axis at 4.3cm and the maximum value finishes on the x-axis at 7.9cm. The y-axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 5.5cm to 6.0cm range, which demonstrates that the highest frequency of sepal length values are in this range.
 
 **Sepal Width**
 ![Sepal Width](sepal_width_histogram.png)
 
-As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm, the maximum is 4.4cm, and the standard deviation is 0.4cm. The histogram above illustrates the frequency of these values. From the above histogram, I can see minimum value of sepal width starting on the x axis at 2.0 and the maximum value of sepal width finishing on the x axis at 4.4. The y axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 3.0 to 3.2 region which demonstrates that the highest frequency of sepal width values are in this region. I have also previously ran some python code to calculate the average of the values of sepal width to be 3.05.
+As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm, the maximum is 4.4cm, and the standard deviation is 0.4cm. The histogram above illustrates the frequency of these values. The minimum value of sepal width starts on the x-axis at 2.0cm and the maximum value finishes on the x-axis at 4.4cm. The y-axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 3.0cm to 3.2cm range, which demonstrates that the highest frequency of sepal width values are in this range.
 
 **Petal Length**
 ![Petal Length](petal_length_histogram.png)
 
-As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm, the maximum is 6.9cm, and the standard deviation is 1.8cm. The histogram above illustrates the frequency of these values. From the above histogram, I can see minimum value of petal length starting on the x axis at 1.0 and the maximum value of petal length finishing on the x axis at 6.9. The y axis also shows the frequency in which these values occur. This histogram shows that although the average of petal length values is 3.05, the highest frequency of petal length values is not in this region. The frequency of this value is actually only around 3 to 4. There are two peaks in the histogram around the 1.0 to 2.0 values and the 3.0 to 4.0 to values. The average of value of petal length is actually an average of these two peaks.
+As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm, the maximum is 6.9cm, and the standard deviation is 1.8cm. The histogram above illustrates the frequency of these values. The minimum value of petal length starts on the x-axis at 1.0cm and the maximum value finishes on the x-axis at 6.9cm. The y-axis also shows the frequency in which these values occur. The histogram shows that although the average of petal length values is 3.05cm, the highest frequency of petal length values is not in this range. The frequency of this value is actually only around 3.0cm to 4.0cm. There are two peaks in the histogram around the 1.0cm to 2.0cm values and the 3.0cm to 4.0cm values.
 
 **Petal Width**
 ![Petal Width](petal_width_histogram.png)
 
-As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. From the above histogram, I can see minimum value of petal width starting on the x axis at 0.1 and the maximum value of petal length finishing on the x axis at 2.5. The y axis also shows the frequency in which these values occur. This histogram shows that although the average of petal length values is 1.19, there aappears to be 3 peaks in the frequency of the values of petal width - at .01, 1.5 and 2.0. The average of value of petal length is actually an average of these three peaks.
+As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. The minimum value of petal width starts on the x-axis at 0.1cm and the maximum value finishes on the x-axis at 2.5cm. The y-axis also shows the frequency in which these values occur. The histogram shows that although the average of petal length values is 1.19cm, there aappears to be 3 peaks in the frequency of the values of petal width, at 0.01cm, 1.5cm and 2.0cm.
 
 ## 5. Bi-Variate Analysis
 A scatterplot is a plot used to display values for typically two variables for a set of data. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis. [Ref: Scatterplot](https://en.wikipedia.org/wiki/Scatter_plot). This type of analysis will allow for a better understanding of the relationships between attributes.
@@ -476,15 +476,21 @@ https://en.wikipedia.org/wiki/Sepal
 
 Alternative uses of the Iris flower data set available at: https://www.techopedia.com/definition/32880/iris-flower-data-set
 
-Visualising and understanding the Iris dataset available at: https://mc.ai/visualization-and-understanding-iris-dataset/
+Visualising and understanding the Iris dataset available at: https://mc.ai/visualization-and-understanding-iris-dataset
 
-Using machine learning to categorise Iris flowers available at: https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+Using machine learning to categorise Iris flowers available at: https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough
 
-https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html 
+pandas.read_csv available at: https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html 
 
-https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
+DataFrame available at: https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html
 
-http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/
+Indexing and selecting data available at: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
+
+Histogram available at: https://en.wikipedia.org/wiki/Histogram
+
+numpy.genformtxt available at: https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
+
+http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib
 
 https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html 
 
