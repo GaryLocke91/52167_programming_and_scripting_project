@@ -291,16 +291,14 @@ with open('summary.txt', 'w') as f:
         f.write(val + '\n')
 ```
 
-Summary statistics of all species:
+The images below show the contents of the generated text file.
+
 ![Summary All Species](summary_all_species.JPG)
 
-Summary statistics of setosa:
 ![Summary Setosa](summary_setosa.JPG)
 
-Summary statistics of versicolor:
 ![Summary Versicolor](summary_versicolor.JPG)
 
-Summary statistics of virginica:
 ![Summary Virginica](summary_virginica.JPG)
 
 ## 4. Univariate Analysis
