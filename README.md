@@ -291,8 +291,20 @@ with open('summary.txt', 'w') as f:
         f.write(val + '\n')
 ```
 
+Summary statistics of all species:
+![Summary All Species](summary_all_species.JPG)
+
+Summary statistics of setosa:
+![Summary Setosa](summary_setosa.JPG)
+
+Summary statistics of versicolor:
+![Summary Versicolor](summary_versicolor.JPG)
+
+Summary statistics of virginica:
+![Summary Virginica](summary_virginica.JPG)
+
 ## 4. Univariate Analysis
-Histograms provide a visualisation of numerical, univariate data by indicating the number of data points that lie within a range of values. These range of values are called classes or bins. The frequency of data that falls in each class is depicted by the use of a bar. The higher that bar is, the greater the frequency of data values in that bin. It can also be described as a bar chart for continuous data values. [Ref: Histogram](https://en.wikipedia.org/wiki/Histogram) The histograms below allow for the easy identification of the distribution and frequency of particular variables within the data set. 
+Histograms provide a visualisation of numerical, univariate data by indicating the number of data points that lie within a range of values. These range of values are referred to as classes or bins. The frequency of data that falls within each class is illustrated by the use of a bar. The higher that bar is, the greater the frequency of data values within that bin. It can also be described as a bar chart for continuous data values. [Ref: Histogram](https://en.wikipedia.org/wiki/Histogram) The histograms below allow for the easy identification of the distribution and frequency of particular variables within the data set. 
 
 To generate histograms for each column in the data set, the ```genfromtxt()``` method from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to '1' to exclude the column headings. 
 
@@ -300,7 +312,7 @@ To generate histograms for each column in the data set, the ```genfromtxt()``` m
 data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
 ```
 
-Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. In the code below, indexing is first applied to select each column in the array and are then assigned to a variable: ```col_1 = data_set[:,0]```, ```col_2 = data_set[:,1]```, ```col_3 = data_set[:,2]```, and ```col_4 = data_set[:,3]```. The ```pyplot.hist()``` function plots a histogram and sets the number of bins and colour of the bars. The ```pl.title()``` function applies a title to the output and sets the font size. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'y' to only show major grid lines on the y-axis. The ```pl.xlabel()``` and ```pl.ylabel()``` functions applies labels to the x-axis and y-axis respectively, while the ```pl.show()``` outputs the histograms in PNG format.
+Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. [Ref: matplotlib.pyplot](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html) In the code below, indexing is first applied to select each column in the array, which are then assigned to a variable: ```col_1 = data_set[:,0]```, ```col_2 = data_set[:,1]```, ```col_3 = data_set[:,2]```, and ```col_4 = data_set[:,3]```. The ```pyplot.hist()``` function plots a histogram and sets the number of bins and colour of the bars. The ```pl.title()``` function applies a title to the output and sets the font size. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'y' to only show major grid lines on the y-axis. The ```pl.xlabel()``` and ```pl.ylabel()``` functions applies labels to the x-axis and y-axis respectively, while the ```pl.show()``` outputs the histograms in PNG format.
 
 ```Python
 col_1 = data_set[:,0]
@@ -489,6 +501,8 @@ Indexing and selecting data available at: https://pandas.pydata.org/pandas-docs/
 Histogram available at: https://en.wikipedia.org/wiki/Histogram
 
 numpy.genformtxt available at: https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
+
+matplotlib.pyplot available at: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html
 
 http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib
 
