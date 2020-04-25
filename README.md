@@ -478,7 +478,7 @@ For the setosa species, the above scatter plot shows that this species appears t
 For the setosa species, the above scatter plot shows that the petal widths and sepal lengths of this species tend to be the shortest of all three species. The petal widths and sepal lengths of the versicolour species tend to be longer than the setosa species but as not long as the virginica species. The petal widths and sepal lengths of the virginica species are the longest of all three species.
 
 ## 6. Histogram and Scatterplot Matrix
-The Plyplot and Seaborn libraries are used to plot a series of histograms and scatterplots. The data set is read using the ```read_csv()``` function from the Pandas library and stored in variable ```iris_data``` as a DataFrame. The ```skiprows``` parameter is set to '1' to exclude the headings. A list called ```header_lst``` is created and populated with the column names. The column names will be assigned to each column of the DataFrame in the order they appear in names. [Ref: Column names](https://kite.com/python/answers/how-to-set-column-names-when-importing-a-csv-into-a-pandas-dataframe-in-python)
+The Pyplot and Seaborn libraries are used to plot a series of histograms and scatterplots. The data set is read using the ```read_csv()``` function from the Pandas library and stored in variable ```iris_data``` as a DataFrame. The ```skiprows``` parameter is set to '1' to exclude the headings. A list called ```header_lst``` is created and populated with the column names. The column names will be assigned to each column of the DataFrame in the order they appear in names. [Ref: Column names](https://kite.com/python/answers/how-to-set-column-names-when-importing-a-csv-into-a-pandas-dataframe-in-python)
 
 The ```pairplot()``` method creates a grid of axes such that each variable in the data will be shared in the y-axis across a single row and in the x-axis across a single column. The diagonal axes are treated differently, drawing a plot to show the univariate distribution of the data for the variable in that column. [Ref: Pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html) The ```hue``` parameter sets the variables that define the subsets of the data, which in this case is the three iris species. The ```markers``` parameter sets the marker style to '+', the ```fig.suptitle()``` method creates a title for the matrix, and the ```fig.subplots_adjust()``` method adjusts the spacing at the top of the matrix. [Ref: Pairplot title](https://stackoverflow.com/questions/36813396/how-to-show-the-title-for-the-diagram-of-seaborn-pairplot-or-pridgrid) The ```legend.get_title()``` function sets the font size of the title. [Ref: Customising pairplot](https://stackoverflow.com/questions/50619895/customizing-pairplot-in-matplotlib-seaborn) The ```pl.show()``` method outputs the scatterplots in PNG format.
 
@@ -492,6 +492,8 @@ g.fig.subplots_adjust(top=.9)
 g._legend.get_title().set_fontsize(12)
 pl.show()
 ```
+
+The series of histograms and scatterplots below provide a summary of all of the information discussed.
 
 ![Pairplot](pairplot.png)
 
