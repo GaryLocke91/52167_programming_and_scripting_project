@@ -182,7 +182,7 @@ Although the initial purpose of the data set was to identify the botanical varia
 
 ## 3. Summary Statistics
 
-The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. [Ref: pandas.read_csv](https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html) A DataFrame is a 2-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref: DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
+The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. [Ref: pandas.read_csv](https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html) A DataFrame is a two-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref: DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The next step in generating the summary text file is to create empty lists for the overall data set and individual species. These lists are then populated with strings to be written to the output file.
 
 ```Python
 df = pd.read_csv('iris_data.csv')
@@ -302,15 +302,19 @@ The images below show the contents of the generated text file.
 ![Summary Virginica](summary_virginica.JPG)
 
 ## 4. Univariate Analysis
-Histograms provide a visualisation of numerical, univariate data by indicating the number of data points that lie within a range of values. These range of values are referred to as classes or bins. The frequency of data that falls within each class is illustrated by the use of a bar. The higher that bar is, the greater the frequency of data values within that bin. It can also be described as a bar chart for continuous data values. [Ref: Histogram](https://en.wikipedia.org/wiki/Histogram) The histograms below allow for the easy identification of the distribution and frequency of particular variables within the data set. 
+Histograms provide a visualisation of numerical, univariate data by indicating the number of data points that lie within a range of values. These range of values are referred to as classes or bins. The frequency of data that falls within each class is illustrated by the use of a bar. The higher that bar is, the greater the frequency of data values within that bin. It can also be described as a bar chart for continuous data values. [Ref: Histogram](https://en.wikipedia.org/wiki/Histogram) To generate histograms for each column in the data set, the ```genfromtxt()``` method from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to '1' to exclude the column headings. 
 
-To generate histograms for each column in the data set, the ```genfromtxt()``` method from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to '1' to exclude the column headings. 
+A histogram is created for the following variables:
+1. Sepal length
+2. Sepal width
+3. Petal length
+4. Petal width 
 
 ```Python
 data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
 ```
 
-Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. [Ref: matplotlib.pyplot](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html) In the code below, indexing is first applied to select each column in the array, which are then assigned to a variable: ```col_1 = data_set[:,0]```, ```col_2 = data_set[:,1]```, ```col_3 = data_set[:,2]```, and ```col_4 = data_set[:,3]```. The ```pyplot.hist()``` function plots a histogram and sets the number of bins and colour of the bars. The ```pl.title()``` function applies a title to the output and sets the font size. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'y' to only show major grid lines on the y-axis. The ```pl.xlabel()``` and ```pl.ylabel()``` functions applies labels to the x-axis and y-axis respectively, while the ```pl.show()``` outputs the histograms in PNG format.
+Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. [Ref: matplotlib.pyplot](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html) In the code below, indexing is first applied to select each column in the array, which are then assigned to a variable: ```col_1 = data_set[:,0]```, ```col_2 = data_set[:,1]```, ```col_3 = data_set[:,2]```, and ```col_4 = data_set[:,3]```. The ```pyplot.hist()``` function plots a histogram and sets the number of bins and colour of the bars. [Ref: plyplot.hist](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html) The ```pl.title()``` function applies a title to the output and sets the font size. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'y' to only show major grid lines on the y-axis. The ```pl.xlabel()``` and ```pl.ylabel()``` functions applies labels to the x-axis and y-axis respectively, while the ```pl.show()``` function outputs the histograms in PNG format.
 
 ```Python
 col_1 = data_set[:,0]
@@ -346,28 +350,42 @@ pl.ylabel('Frequency')
 pl.show()
 ```
 
+The histograms below allow for the easy identification of the distribution and frequency of the variables within the data set.
+
 **Sepal Length**
 ![Sepal Length](sepal_length_histogram.png)
 
-As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm, the maximum is 7.9cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. The minimum value of sepal length starts on the x-axis at 4.3cm and the maximum value finishes on the x-axis at 7.9cm. The y-axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 5.5cm to 6.0cm range, which demonstrates that the highest frequency of sepal length values are in this range.
+As established in the generated summary file, the average sepal length is 5.8cm, the minimum value is 4.3cm, the maximum is 7.9cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. The minimum value of sepal length starts on the x-axis at 4.3cm and the maximum value finishes on the x-axis at 7.9cm. The y-axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 5.0cm to 6.5cm range, which demonstrates that the highest frequency of sepal length values are in this range. The two most notable peaks occur at approximately 5.0cm and 6.4cm.
 
 **Sepal Width**
 ![Sepal Width](sepal_width_histogram.png)
 
-As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm, the maximum is 4.4cm, and the standard deviation is 0.4cm. The histogram above illustrates the frequency of these values. The minimum value of sepal width starts on the x-axis at 2.0cm and the maximum value finishes on the x-axis at 4.4cm. The y-axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 3.0cm to 3.2cm range, which demonstrates that the highest frequency of sepal width values are in this range.
+As established in the generated summary file, the average sepal width is 3.1cm, the minimum value is 2.0cm, the maximum is 4.4cm, and the standard deviation is 0.4cm. The histogram above illustrates the frequency of these values. The minimum value of sepal width starts on the x-axis at 2.0cm and the maximum value finishes on the x-axis at 4.4cm. The y-axis also shows the frequency in which these values occur. The histogram bars appear to peak around the 2.7cm to 3.3cm range, which demonstrates that the highest frequency of sepal width values are in this range. The most notable peak occurs at approximately 3.0cm.
 
 **Petal Length**
 ![Petal Length](petal_length_histogram.png)
 
-As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm, the maximum is 6.9cm, and the standard deviation is 1.8cm. The histogram above illustrates the frequency of these values. The minimum value of petal length starts on the x-axis at 1.0cm and the maximum value finishes on the x-axis at 6.9cm. The y-axis also shows the frequency in which these values occur. The histogram shows that although the average of petal length values is 3.05cm, the highest frequency of petal length values is not in this range. The frequency of this value is actually only around 3.0cm to 4.0cm. There are two peaks in the histogram around the 1.0cm to 2.0cm values and the 3.0cm to 4.0cm values.
+As established in the generated summary file, the average petal length is 3.8cm, the minimum value is 1.0cm, the maximum is 6.9cm, and the standard deviation is 1.8cm. The histogram above illustrates the frequency of these values. The minimum value of petal length starts on the x-axis at 1.0cm and the maximum value finishes on the x-axis at 6.9cm. The y-axis also shows the frequency in which these values occur. The histogram shows that although the average of petal length values is 3.05cm, the highest frequency of petal length values is not in this range. The frequency of this value is actually only around 3.0cm to 4.0cm. There are two peaks in the histogram around the 1.0cm to 2.0cm values and the 4.0cm to 5.5cm values. The most notable peak occurs at approximately 1.5cm.
 
 **Petal Width**
 ![Petal Width](petal_width_histogram.png)
 
-As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. The minimum value of petal width starts on the x-axis at 0.1cm and the maximum value finishes on the x-axis at 2.5cm. The y-axis also shows the frequency in which these values occur. The histogram shows that although the average of petal length values is 1.19cm, there aappears to be 3 peaks in the frequency of the values of petal width, at 0.01cm, 1.5cm and 2.0cm.
+As established in the generated summary file, the average petal width is 1.2cm, the minimum value is 0.1cm, the maximum is 2.5cm, and the standard deviation is 0.8cm. The histogram above illustrates the frequency of these values. The minimum value of petal width starts on the x-axis at 0.1cm and the maximum value finishes on the x-axis at 2.5cm. The y-axis also shows the frequency in which these values occur. The histogram shows that although the average of petal length values is 1.19cm, there aappears to be three peaks in the frequency of the values of petal width, at approximately 0.01cm, 1.4cm and 1.8cm. The most notable peak occurs at approximately 0.2cm.
 
 ## 5. Bi-Variate Analysis
-A scatterplot is a plot used to display values for typically two variables for a set of data. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis. [Ref: Scatterplot](https://en.wikipedia.org/wiki/Scatter_plot). This type of analysis will allow for a better understanding of the relationships between attributes.
+A scatterplot is a plot used to display values for typically two variables of a data set. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal x-axis and the value of the other variable determining the position on the vertical y-axis. [Ref: Scatterplot](https://en.wikipedia.org/wiki/Scatter_plot). This type of analysis will allow for a better understanding of the relationships between attributes.
+
+A scatterplot is created for the following variables:
+1. Sepal length and sepal width
+2. Petal length and petal width
+3. Sepal length and petal length
+4. Sepal width and petal width
+5. Sepal width and petal length
+6. Sepal length and petal width 
+
+The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. [Ref: pandas.read_csv](https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html) A DataFrame is a two-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref: DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The column heading is suitably renamed for each variable, as they are to be the axis titles. To create the scatterplot for each set of variables, the Seaborn library is used. Seaborn is a statistical plotting library based on Matplotlib, and it provides a high-level interface for drawing attractive and informative statistical graphics. [Ref: Seaborn](https://towardsdatascience.com/data-visualization-using-seaborn-fc24db95a850) 
+
+The ```sn.lmplot()``` function is used to generate the scatterplots. The ```x``` and ```y``` parameters allow the input variables to be specified, while the ```hue``` parameter sets the variables that define the subsets of the data, which in this case is the three iris species. [Ref: seaborn.lmplot](https://seaborn.pydata.org/generated/seaborn.lmplot.html) The ```pl.legend()``` function from the Pyplot library is used to plot a legend. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'both' to show major grid lines on both the x-axis and y-axis. The ```pl.suptitle()``` function applies a title to the scatterplot and the ```fontsize``` parameter sets the font size to '16'. [Ref: Data visualisations](http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib) The ```pl.subplots_adjust``` function allows for the space at the top of the scatterplot to be defined by using the ```top``` parameter. [Ref: Title](https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085) The ```pl.show()``` function outputs the scatterplots in PNG format.    
 
 ```Python
 iris_data = pd.read_csv('iris_data.csv')
@@ -502,13 +520,15 @@ numpy.genformtxt available at: https://docs.scipy.org/doc/numpy/reference/genera
 
 matplotlib.pyplot available at: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html
 
-http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib
+pyplot.hist available at: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html 
 
-https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html 
+Seaborn available at: https://towardsdatascience.com/data-visualization-using-seaborn-fc24db95a850
 
-https://seaborn.pydata.org/generated/seaborn.lmplot.html
+seaborn.lmplot available at: https://seaborn.pydata.org/generated/seaborn.lmplot.html
 
-https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085
+Data visualisations available at: http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib
+
+Title available at: https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085
 
 https://seaborn.pydata.org/generated/seaborn.pairplot.html
 
