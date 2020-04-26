@@ -450,32 +450,32 @@ pl.show()
 **Sepal Length vs. Sepal Width**
 ![Sepal Length vs. Sepal Width](sepal_length_vs_sepal_width_scatterplot.png)
 
-For the setosa species, the above scatter plot shows that the sepals of this species tend to be wider but not longer than the sepals of the other two species. The sepals of the versicolour species tend to be longer than the setosa species but tend not to be as wide. The sepals of the virginica species tend to be the longest of all the three species but these sepals don't tend to be as a wide as the setosa species.
+The above scatterplot illustrates how the sepal length of the setosa species tends to be both wider and shorter than that of the other two species. The sepals of the versicolor species appear to be longer than that of the setosa species but not as wide. The sepals of the virginica species tend to be the longest of the three species, but not as wide as the setosa species. With the exception of a few anomalies, the width of the versicolor and virginica species tend to be similar.
 
 **Petal Length vs. Petal Width**
 ![Petal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
 
-For the setosa species, the above scatter plot shows that the petals of this species tend to be the smallest of all three species. The sepals of the versicolour species tend to be longer and wider than the setosa species but not log and wide as the virginica species. The petals of the virginica species are the largest of all three species.
+The above scatterplot illustrates how the petals of the setosa species tend to be the smallest of all three species in terms of both length and width. The sepals of the versicolor species tend to be both longer and wider than that of the setosa species, but not as long and wide as that of the virginica species. The petals of the virginica species are the largest of all three species in terms of both length and width.
 
 **Sepal Length vs. Petal Length**
 ![Sepal Length vs. Petal Length](sepal_length_vs_petal_length_scatterplot.png)
 
-For the setosa species, the above scatter plot shows that the sepals and petals of this species tend to be the shortest of all three species. The sepals and petals of the versicolour species tend to be longer than the setosa species but as not long as the virginica species. The sepals and petals of the virginica species are the largest of all three species.
+The above scatterplot illustrates how both the petals and sepals of the setosa species appear to be the shortest of all three species. Both the sepals and petals of the versicolor species tend to be longer than that of the setosa species, but not as long as that of the virginica species. Both the sepals and petals of the virginica species are the longest of all three species.
 
 **Sepal Width vs Petal Width**
 ![Sepal Width vs Petal Width](sepal_width_vs_petal_width_scatterplot.png)
 
-For the setosa species, the above scatter plot shows that the sepals and petals of this species tend to be the least wide of all three species. The sepals and petals of the versicolour species tend to be wider than the setosa species but as not wide as the virginica species. The sepals and petals of the virginica species are the widest of all three species.
+The above scatterplot illustrates how the width of both the sepals and petals of the setosa species is the smallest of all three species. The sepals and petals of the versicolour species appear to be wider than that of the setosa species, but not as wide as that of the virginica species. The sepals and petals of the virginica species are the widest of all three species.
 
 **Sepal Width vs. Petal Length**
 ![Sepal Width vs. Petal Length](sepal_width_vs_petal_length_scatterplot.png)
 
-For the setosa species, the above scatter plot shows that this species appears to have the widest sepals but it also has the shortest petals. The sepals of the versicolour species are not as wide as the setosa species but it's petals are longer. The sepals of the virginia species are not as wide as the setosa species but it's petals of the virginica species are the longest of all three species.
+The above scatterplot illustrates how the setosa species has the widest sepals but the shortest petals. The sepals of the versicolour species appear to be not as wide as that of the setosa species, but it tends to have longer petals. The sepals of the virginica species are not as wide as that of the setosa species, but the petals of the virginica species are the longest of all three species.
 
 **Sepal Length vs. Petal Width**
 ![Sepal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
 
-For the setosa species, the above scatter plot shows that the petal widths and sepal lengths of this species tend to be the shortest of all three species. The petal widths and sepal lengths of the versicolour species tend to be longer than the setosa species but as not long as the virginica species. The petal widths and sepal lengths of the virginica species are the longest of all three species.
+The above scatterplot illustrates how both the sepal length and petal width of the setosa species are the shortest of all three species. The petal widths and sepal lengths of the versicolour species tend to be longer than that of the setosa species, but as not long as that of the virginica species. The petal widths and sepal lengths of the virginica species are the longest of all three species.
 
 ## 6. Histogram and Scatterplot Matrix
 The Pyplot and Seaborn libraries are used to plot a series of histograms and scatterplots. The data set is read using the ```read_csv()``` function from the Pandas library and stored in variable ```iris_data``` as a DataFrame. The ```skiprows``` parameter is set to '1' to exclude the headings. A list called ```header_lst``` is created and populated with the column names. The column names will be assigned to each column of the DataFrame in the order they appear in names. [Ref: Column names](https://kite.com/python/answers/how-to-set-column-names-when-importing-a-csv-into-a-pandas-dataframe-in-python)
