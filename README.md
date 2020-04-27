@@ -1,6 +1,6 @@
 # Programming and Scripting Project
 
-## Contents
+## Table of Contents
 1. Problem Statement
 2. Summary of Fisher's Iris Data Set
 3. Summary Statistics
@@ -193,7 +193,7 @@ lst_ver = []
 lst_vir = []
 ```
 
-The minimum, maximum, average, and standard deviation of each variable is calculated for the overall data set as well as each species individually. The ```min()```, ```max()```, ```mean()```, and ```std()``` method generate summary statistics for each column.  The ```str()``` method converts each calculation to a string, which is then concatenated with the rest of the sentence to form a single string. The ```append()``` method adds a single item to the existing list. Indexing with the ```[]``` operator finds the given element in the DataFrame and returns its position, so ```['sepal_length']``` returns the sepal length column, ```['sepal_width']``` returns the sepal width column, ```['petal_length']``` returns the petal length column, and ```['sepal_length']``` returns the sepal length column. Slicing with the ```[]``` operator returns a subset of the data set. As the setosa species is the first 50 rows, the versicolor species is the next 50 rows and the virginica species is the last 50 rows, ```[:50]```, ```[50:100]``` and ```[100:]``` returns those rows respectively. This allows the calculations to be applied to those rows only. [Ref: Indexing and selecting data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
+The minimum, maximum, average, and standard deviation of each variable is calculated for the overall data set as well as each species individually. The ```min()```, ```max()```, ```mean()```, and ```std()``` functions generate summary statistics for each column.  The ```str()``` function converts each calculation to a string, which is then concatenated with the rest of the sentence to form a single string. The ```append()``` function adds a single item to the existing list. Indexing with the ```[]``` operator finds the given element in the DataFrame and returns its position, so ```['sepal_length']``` returns the sepal length column, ```['sepal_width']``` returns the sepal width column, ```['petal_length']``` returns the petal length column, and ```['sepal_length']``` returns the sepal length column. Slicing with the ```[]``` operator returns a subset of the data set. As the setosa species is the first 50 rows, the versicolor species is the next 50 rows and the virginica species is the last 50 rows, ```[:50]```, ```[50:100]``` and ```[100:]``` returns those rows respectively. This allows the calculations to be applied to those rows seperately. [Ref: Indexing and selecting data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
 
 ```Python
 lst_tot.append('Minimum sepal length: ' + str(df['sepal_length'].min()))
@@ -265,7 +265,7 @@ lst_vir.append('Standard deviation of petal length: ' + str(round(df['petal_leng
 lst_vir.append('Standard deviation of petal width: ' + str(round(df['petal_width'][100:].std(), 1)))
 ```
 
-A writable text file named 'summary.txt' is created using the ```open()``` method, and writes each element of each list in turn to the file using a For loop and the ```write()``` method. 
+A writable text file named 'summary.txt' is created using the ```open()``` function, and writes each element of each list in turn to the file using a For loop and the ```write()``` function. The ```open()``` function takes two parameters, the first being the pathname of the file. The second parameter is an optional string that specifies the mode in which the file is opened. In this case the mode is set to ```'w'```, which means that the file is open for writing. [Ref: Opening a file](https://docs.python.org/3/library/functions.html#open). At the end of each sentence, a new line is created by concatenating it with ```'\n'```.
 
 ```Python
 with open('summary.txt', 'w') as f:
@@ -310,13 +310,13 @@ A histogram is created for the following:
 3. Petal length
 4. Petal width 
 
-To generate histograms for each column in the data set, the ```genfromtxt()``` method from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to '1' to exclude the column headings. 
+To generate histograms for each column in the data set, the ```genfromtxt()``` function from the Numpy library is used to read the data. [Ref: numpy.genfromtxt](https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html) The ```delimiter``` parameter is set to a comma and the ```skip_header``` parameter is set to '1' to exclude the column headings. 
 
 ```Python
 data_set = np.genfromtxt('iris_data.csv', delimiter=',', skip_header=1)
 ```
 
-Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. [Ref: matplotlib.pyplot](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html) In the code below, indexing is first applied to select each column in the array, which are then assigned to a variable: ```col_1 = data_set[:,0]```, ```col_2 = data_set[:,1]```, ```col_3 = data_set[:,2]```, and ```col_4 = data_set[:,3]```. The ```pyplot.hist()``` method plots a histogram and sets the number of bins and colour of the bars. [Ref: plyplot.hist](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html) The ```pl.title()``` method applies a title to the output and sets the font size. The ```pl.grid()``` method applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'y' to only show major grid lines on the y-axis. The ```pl.xlabel()``` and ```pl.ylabel()``` methods applies labels to the x-axis and y-axis respectively, while the ```pl.show()``` method outputs the histograms in PNG format.
+Pyplot is a state-based interface to Matplotlib library and can be used to create a variety of visualisations. [Ref: matplotlib.pyplot](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html) In the code below, indexing is first applied to select each column in the array, which are then assigned to a variable: ```col_1 = data_set[:,0]```, ```col_2 = data_set[:,1]```, ```col_3 = data_set[:,2]```, and ```col_4 = data_set[:,3]```. The ```pyplot.hist()``` function plots a histogram and sets the number of bins and colour of the bars. [Ref: plyplot.hist](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html) The ```pl.title()``` function applies a title to the output and sets the font size. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'y' to only show major grid lines on the y-axis. The ```pl.xlabel()``` and ```pl.ylabel()``` functions applies labels to the x-axis and y-axis respectively, while the ```pl.show()``` method outputs the histograms in PNG format.
 
 ```Python
 col_1 = data_set[:,0]
@@ -385,9 +385,9 @@ A scatterplot is created for the following:
 5. Sepal width vs. petal length
 6. Sepal length vs. petal width 
 
-The data set is read using the ```read_csv()``` method from the Pandas library and stored in a variable as a DataFrame. [Ref: pandas.read_csv](https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html) A DataFrame is a two-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref: DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The column heading is renamed appropriately for each variable, as they are to be the axis titles. To create the scatterplot for each set of variables, the Seaborn library is used. Seaborn is a statistical plotting library based on Matplotlib, and it provides a high-level interface for drawing attractive and informative statistical graphics. [Ref: Seaborn](https://towardsdatascience.com/data-visualization-using-seaborn-fc24db95a850) 
+The data set is read using the ```read_csv()``` function from the Pandas library and stored in a variable as a DataFrame. [Ref: pandas.read_csv](https://pandas.pydata.org/pandas-docs/version/0.21.1/generated/pandas.read_csv.html) A DataFrame is a two-dimensional labelled data structure with columns of potentially different types, aligned in a tabular fashion in rows and columns. [Ref: DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html) The column heading is renamed appropriately for each variable, as they are to be the axis titles. To create the scatterplot for each set of variables, the Seaborn library is used. Seaborn is a statistical plotting library based on Matplotlib, and it provides a high-level interface for drawing attractive and informative statistical graphics. [Ref: Seaborn](https://towardsdatascience.com/data-visualization-using-seaborn-fc24db95a850) 
 
-The ```sn.lmplot()``` method is used to generate the scatterplots. The ```x``` and ```y``` parameters allow the input variables to be specified, while the ```hue``` parameter sets the variables that define the subsets of the data, which in this case is the three iris species. [Ref: seaborn.lmplot](https://seaborn.pydata.org/generated/seaborn.lmplot.html) The ```pl.legend()``` method from the Pyplot library is used to plot a legend. The ```pl.grid()``` method applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'both' to show major grid lines on both the x-axis and y-axis. The ```pl.suptitle()``` method applies a title to the scatterplot and the ```fontsize``` parameter sets the font size to '16'. [Ref: Data visualisations](http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib) The ```pl.subplots_adjust``` method allows for the space at the top of the scatterplot to be defined by using the ```top``` parameter. [Ref: Title](https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085) The ```pl.show()``` method outputs the scatterplots in PNG format.    
+The ```sn.lmplot()``` function is used to generate the scatterplots. The ```x``` and ```y``` parameters allow the input variables to be specified, while the ```hue``` parameter sets the variables that define the subsets of the data, which in this case is the three iris species. [Ref: seaborn.lmplot](https://seaborn.pydata.org/generated/seaborn.lmplot.html) The ```pl.legend()``` function from the Pyplot library is used to plot a legend. The ```pl.grid()``` function applies grid lines to the plot area. In this instance, the ```which``` parameter is set to 'major' and the ```axis``` parameter is set to 'both' to show major grid lines on both the x-axis and y-axis. The ```pl.suptitle()``` function applies a title to the scatterplot and the ```fontsize``` parameter sets the font size to '16'. [Ref: Data visualisations](http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib) The ```pl.subplots_adjust``` function allows for the space at the top of the scatterplot to be defined by using the ```top``` parameter. [Ref: Title](https://stackoverflow.com/questions/16419670/increase-distance-between-title-and-plot-in-matplolib/56738085) The ```pl.show()``` function outputs the scatterplots in PNG format.    
 
 ```Python
 iris_data = pd.read_csv('iris_data.csv')
@@ -450,37 +450,37 @@ pl.show()
 **Sepal Length vs. Sepal Width**
 ![Sepal Length vs. Sepal Width](sepal_length_vs_sepal_width_scatterplot.png)
 
-The above scatterplot illustrates how the sepal length of the setosa species tends to be both wider and shorter than that of the other two species. The sepals of the versicolor species appear to be longer than that of the setosa species but not as wide. The sepals of the virginica species tend to be the longest of the three species, but not as wide as the setosa species. With the exception of a few anomalies, the width of the versicolor and virginica species tend to be similar.
+The above scatterplot illustrates how the sepal length of the setosa species tends to be both wider and shorter than that of the other two species. The sepal of the versicolor species appear to be longer than that of the setosa species but not as wide. The sepal of the virginica species tend to be the longest of the three species, but not as wide as that of the setosa species. With the exception of a few anomalies, the width of the versicolor and virginica species tend to be similar.
 
 **Petal Length vs. Petal Width**
 ![Petal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
 
-The above scatterplot illustrates how the petals of the setosa species tend to be the smallest of all three species in terms of both length and width. The sepals of the versicolor species tend to be both longer and wider than that of the setosa species, but not as long and wide as that of the virginica species. The petals of the virginica species are the largest of all three species in terms of both length and width.
+The above scatterplot illustrates how the petal of the setosa species tends to be the smallest of all three species in terms of both length and width. The sepal of the versicolor species tends to be both longer and wider than that of the setosa species, but not as long and wide as that of the virginica species. The petal of the virginica species appears to be the largest of all three species in terms of both length and width.
 
 **Sepal Length vs. Petal Length**
 ![Sepal Length vs. Petal Length](sepal_length_vs_petal_length_scatterplot.png)
 
-The above scatterplot illustrates how both the petals and sepals of the setosa species appear to be the shortest of all three species. Both the sepals and petals of the versicolor species tend to be longer than that of the setosa species, but not as long as that of the virginica species. Both the sepals and petals of the virginica species are the longest of all three species.
+The above scatterplot illustrates how both the petal and sepal of the setosa species appear to be the shortest of all three species. Both the sepal and petal of the versicolor species tends to be longer than those of the setosa species, but not as long as those of the virginica species. Both the sepal and petal of the virginica species are the longest of all three species.
 
 **Sepal Width vs Petal Width**
 ![Sepal Width vs Petal Width](sepal_width_vs_petal_width_scatterplot.png)
 
-The above scatterplot illustrates how the width of both the sepals and petals of the setosa species is the smallest of all three species. The sepals and petals of the versicolour species appear to be wider than that of the setosa species, but not as wide as that of the virginica species. The sepals and petals of the virginica species are the widest of all three species.
+The above scatterplot illustrates how the width of both the sepal and petal of the setosa species is the smallest of all three species. The sepal and petal of the versicolour species appear to be wider than those of the setosa species, but not as wide as those of the virginica species. The sepal and petal of the virginica species are the widest of all three species.
 
 **Sepal Width vs. Petal Length**
 ![Sepal Width vs. Petal Length](sepal_width_vs_petal_length_scatterplot.png)
 
-The above scatterplot illustrates how the setosa species has the widest sepals but the shortest petals. The sepals of the versicolour species appear to be not as wide as that of the setosa species, but it tends to have longer petals. The sepals of the virginica species are not as wide as that of the setosa species, but the petals of the virginica species are the longest of all three species.
+The above scatterplot illustrates how the setosa species has the widest sepal but the shortest petal. The sepal of the versicolour species appear to be not as wide as that of the setosa species, but it tends to have a longer petal. The sepal of the virginica species is not as wide as that of the setosa species, but the petal of the virginica species is the longest of all three species.
 
 **Sepal Length vs. Petal Width**
 ![Sepal Length vs. Petal Width](sepal_length_vs_petal_width_scatterplot.png)
 
-The above scatterplot illustrates how both the sepal length and petal width of the setosa species are the shortest of all three species. The petal widths and sepal lengths of the versicolour species tend to be longer than that of the setosa species, but as not long as that of the virginica species. The petal widths and sepal lengths of the virginica species are the longest of all three species.
+The above scatterplot illustrates how both the sepal length and petal width of the setosa species are the shortest of all three species. The petal width and sepal length of the versicolour species tend to be longer than those of the setosa species, but as not long as those of the virginica species. The petal width and sepal length of the virginica species are the longest of all three species.
 
 ## 6. Histogram and Scatterplot Matrix
 The Pyplot and Seaborn libraries are used to plot a series of histograms and scatterplots. The data set is read using the ```read_csv()``` function from the Pandas library and stored in variable ```iris_data``` as a DataFrame. The ```skiprows``` parameter is set to '1' to exclude the headings. A list called ```header_lst``` is created and populated with the column names. The column names will be assigned to each column of the DataFrame in the order they appear in names. [Ref: Column names](https://kite.com/python/answers/how-to-set-column-names-when-importing-a-csv-into-a-pandas-dataframe-in-python)
 
-The ```pairplot()``` method creates a grid of axes such that each variable in the data will be shared in the y-axis across a single row and in the x-axis across a single column. The diagonal axes are treated differently, drawing a plot to show the univariate distribution of the data for the variable in that column. [Ref: Pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html) The ```hue``` parameter sets the variables that define the subsets of the data, which in this case is the three iris species. The ```markers``` parameter sets the marker style to '+', the ```fig.suptitle()``` method creates a title for the matrix, and the ```fig.subplots_adjust()``` method adjusts the spacing at the top of the matrix. [Ref: Pairplot title](https://stackoverflow.com/questions/36813396/how-to-show-the-title-for-the-diagram-of-seaborn-pairplot-or-pridgrid) The ```legend.get_title()``` function sets the font size of the title. [Ref: Customising pairplot](https://stackoverflow.com/questions/50619895/customizing-pairplot-in-matplotlib-seaborn) The ```pl.show()``` method outputs the scatterplots in PNG format.
+The ```pairplot()``` function creates a grid of axes such that each variable in the data will be shared in the y-axis across a single row and in the x-axis across a single column. The diagonal axes are treated differently, drawing a plot to show the univariate distribution of the data for the variable in that column. [Ref: Pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html) The ```hue``` parameter sets the variables that define the subsets of the data, which in this case is the three iris species. The ```markers``` parameter sets the marker style to '+', the ```fig.suptitle()``` function creates a title for the matrix, and the ```fig.subplots_adjust()``` function adjusts the spacing at the top of the matrix. [Ref: Pairplot title](https://stackoverflow.com/questions/36813396/how-to-show-the-title-for-the-diagram-of-seaborn-pairplot-or-pridgrid) The ```legend.get_title()``` function sets the font size of the title. [Ref: Customising pairplot](https://stackoverflow.com/questions/50619895/customizing-pairplot-in-matplotlib-seaborn) The ```pl.show()``` function outputs the scatterplots in PNG format.
 
 ```Python
 header_lst = ['Sepal Length (cm)', 'Sepal Width (cm)', 'Petal Length (cm)', 'Petal Width (cm)', 'Species']
@@ -493,7 +493,7 @@ g._legend.get_title().set_fontsize(12)
 pl.show()
 ```
 
-The series of histograms and scatterplots below provide a summary of all of the information discussed.
+The series of histograms and scatterplots below provide a summary of all of the data discussed. It is evident from the histograms that petal length and petal width do not have a normal distribution, while sepal length and sepal width are uniformly distributed. There seems to be a positive correlation between the length and width of all the species, however there is a notably strong correlation and relationship between petal length and petal width. [Ref: Data visualisation](https://rpubs.com/AjinkyaUC/Iris_DataSet) There is a clear distinction between the distribution of the setosa species and the other two species in scatterplots which involve petal width and petal length, while there is more of an overlap in scatterplots involving sepal length and sepal width. [Ref: Analysis of iris data set](https://pradeepadhokshaja.blogspot.com/2016/08/analysis-of-iris-data-set.html) The data appears to be divided into almost three separable clusters using the petal length and width variables. Overall the distribution of versicolor and virginica appear to overlap, which would infer that they are physically similar. The scatterplot of sepal and petal lengths illustrates how they are linearly separable from the other species. [Ref: Linearly separable problem](http://mitloehner.com/lehre/se/iris.html) Conclusively, it would be recommended to use petal length and petal width as parameters for separating the iris flower into the three different species.
 
 ![Pairplot](pairplot.png)
 
@@ -532,6 +532,8 @@ DataFrame available at: https://pandas.pydata.org/pandas-docs/stable/getting_sta
 
 Indexing and selecting data available at: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
 
+Opening a file available at: https://docs.python.org/3/library/functions.html#open
+
 Histogram available at: https://en.wikipedia.org/wiki/Histogram
 
 numpy.genformtxt available at: https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
@@ -555,3 +557,9 @@ Column names available at: https://kite.com/python/answers/how-to-set-column-nam
 Pairplot title available at: https://stackoverflow.com/questions/36813396/how-to-show-the-title-for-the-diagram-of-seaborn-pairplot-or-pridgrid
 
 Customising pairplot available at: https://stackoverflow.com/questions/50619895/customizing-pairplot-in-matplotlib-seaborn 
+
+Analysis of iris data set available at: https://pradeepadhokshaja.blogspot.com/2016/08/analysis-of-iris-data-set.html
+
+Linearly separable problem available at: http://mitloehner.com/lehre/se/iris.html
+
+Data visualisation available at: https://rpubs.com/AjinkyaUC/Iris_DataSet
